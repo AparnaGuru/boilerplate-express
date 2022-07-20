@@ -11,7 +11,7 @@ app.get("/",(req,res) => {
 )
 
 app.get("/json",(req,res) => {
-        res.JSON({"message": "Hello json"});
+        res.JSON({message: "Hello json"});
         }   
 )
 
