@@ -9,7 +9,7 @@ app.get("/",(req,res) => {
 });
 
 app.get("/json",(req,res) => {
-               res.json({message: process.env.MESSAGE_STYLE =="uppercase" ? "Hello json".toUpperCase() : "Hello json"});    
+               res.json({message: process.env.MESSAGE_STYLE =="uppercase" ? "hi" : "Hello json"});    
 });
 
 
