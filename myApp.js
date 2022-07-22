@@ -1,3 +1,4 @@
+console.log(process.env.MESSAGE_STYLE);
 let express = require('express');
 let app = express(); 
 
