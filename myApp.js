@@ -16,8 +16,9 @@ app.get("/json",(req,res) => {
                 console.log(process.env.MESSAGE_STYLE);
         }   
         else  {
-               res.json({message: "Hello json"});
                 console.log("hi");
+               res.json({message: "Hello json"});
+                
         }
 });
 
