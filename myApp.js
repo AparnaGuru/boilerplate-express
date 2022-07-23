@@ -5,6 +5,10 @@ let app = express();
 
 console.log("Hello World");
 app.use("/public", express.static(__dirname + "/public"));
+app.use(req,res,next){
+        var string = req.method + " " + req.path + " - " + req.ip;
+        next();
+}
 
 app.use((req,res,next1) => {
         var string1 = req.method + " " + req.path + " - " + req.ip;
@@ -17,7 +21,7 @@ app.get("/",(req,res) => {
 });
 
 app.get("/json",(req,res) => {
-               res.json({message: process.env.MESSAGE_STYLE =="uppercase" ? "hi" : "Hello json"});    
+               res.json({message: process.env.MESSAGE_STYLE =="uppercase" ? "hello json".toUpperCase() : "Hello json"});    
 });
 
 
