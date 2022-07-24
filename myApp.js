@@ -29,18 +29,17 @@ app.get("/json",(req,res) => {
         res.json({message: process.env.MESSAGE_STYLE =="uppercase" ? "hello json".toUpperCase() : "Hello json"});    
 });
 
-/*app.get("/:word/echo", (req,res)=>{
-        //res.send({echo : req.params.word})
-        res.json({echo : req.params.word})
-});*/
+//app.get("/:word/echo", (req,res)=>{
+ //       //res.send({echo : req.params.word})
+ //       res.json({echo : req.params.word})
+//});
 
 app.get("/:word/echo", (req, res) => {
-  const { word } = req.params;
-  res.json({
-    echo: word
-  });
+  let word = req.params.word
+  
+  let jsonObj = {echo: word,echo: word};
+  res.send(jsonObj);
 });
-
 
 
 
