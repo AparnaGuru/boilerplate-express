@@ -34,39 +34,8 @@ app.get("/:word/echo", (req,res)=>{
        res.json({echo : req.params.word})
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- module.exports = app;
+app.get("/name",(req,res)=>{
+        var firstName= req.query.fn;
+        var lastName= req.query.ln;
+        res.json({name: firstName+" "+ lastName})
+});
