@@ -35,7 +35,7 @@ app.get("/json",(req,res) => {
 //});
 
 app.post('/:word/echo', function(req, res) {
-res.json({‘echo’: req.params.word});
+res.json({'echo': req.params.word});
 });
 
 
