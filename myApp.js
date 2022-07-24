@@ -28,9 +28,3 @@ app.get("/",(req,res) => {
 app.get("/json",(req,res) => {
         res.json({message: process.env.MESSAGE_STYLE =="uppercase" ? "hello json".toUpperCase() : "Hello json"});    
 });
-
-app.get("/:word/echo", (req,res)=>{
-       //res.send({echo : req.params.word})
-       res.json({echo : req.params.word})
-});
-
