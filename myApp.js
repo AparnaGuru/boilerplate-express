@@ -34,11 +34,8 @@ app.get("/json",(req,res) => {
  //       res.json({echo : req.params.word})
 //});
 
-app.get("/:word/echo", (req, res) => {
-  let word = req.params.word
-  
-  let jsonObj = {echo: word,echo: word};
-  res.send(jsonObj);
+app.get(’/:word/echo’, function(req, res) {
+res.json({‘echo’: req.params.word});
 });
 
 
