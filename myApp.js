@@ -5,15 +5,20 @@ let app = express();
 
 console.log("Hello World");
 app.use("/public", express.static(__dirname + "/public"));
-app.use(req,res,next){
-        var string = req.method + " " + req.path + " - " + req.ip;
-        next();
-}
+
 
 app.use((req,res,next1) => {
         var string1 = req.method + " " + req.path + " - " + req.ip;
         console.log(string1)
         next1();
+});
+
+app.use("/now",(req,res,next2) => {
+        req.time = new Date().toString();
+        next2();
+},
+(req,res)=>{                                            //we can do err handling here. Nesting middleware function inside function
+        res.json({time: req.time})
 });
 
 app.get("/",(req,res) => {
