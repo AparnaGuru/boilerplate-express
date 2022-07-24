@@ -13,6 +13,14 @@ app.use((req,res,next1) => {
         next1();
 });
 
+app.use("/now",(req,res,next2) => {
+        req.time = new Date().toString();
+        next2();
+},
+(req,res)=>{                                            //we can do err handling here. Nesting middleware function inside function
+        res.json({time: req.time})
+});
+
 app.get("/",(req,res) => {
         res.sendFile(__dirname+ "/views/index.html");
 });
