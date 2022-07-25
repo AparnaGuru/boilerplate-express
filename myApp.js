@@ -36,8 +36,8 @@ app.get("/:word/echo", (req,res)=>{
 });
 
 app.post("/name",(req,res)=>{
-        var firstName= req.query.first;
-        var lastName= req.query.last;
+        var firstName= req.body.first;
+        var lastName= req.body.last;
         res.json({name: firstName+" "+ lastName})
 });
 
