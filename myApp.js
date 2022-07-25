@@ -2,10 +2,11 @@ require('dotenv').config();
 console.log(process.env.MESSAGE_STYLE);
 let express = require('express');
 let app = express(); 
+var bodyParser = require('body-parser');
 
 console.log("Hello World");
 app.use("/public", express.static(__dirname + "/public"));
-
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req,res,next1) => {
         var string1 = req.method + " " + req.path + " - " + req.ip;
