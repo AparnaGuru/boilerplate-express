@@ -5,8 +5,21 @@ let app = express();
 var bodyParser = require('body-parser');
 
 console.log("Hello World");
+
+
+
 app.use("/public", express.static(__dirname + "/public"));
+
 app.use(bodyParser.urlencoded({ extended: false }));
+
+
+app.get("/",(req,res) => {
+        res.sendFile(__dirname+ "/views/index.html");
+});
+
+
+
+
 
 app.use((req,res,next1) => {
         var string1 = req.method + " " + req.path + " - " + req.ip;
@@ -22,9 +35,6 @@ app.get("/now",(req,res,next2) => {
         res.send({time: req.time})
 });
 
-app.get("/",(req,res) => {
-        res.sendFile(__dirname+ "/views/index.html");
-});
 
 app.get("/json",(req,res) => {
         res.json({message: process.env.MESSAGE_STYLE =="uppercase" ? "hello json".toUpperCase() : "Hello json"});    
